@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+Hello SYMPOC!
+<script src="config_symbol_application.js"></script>
+<script src="sympoc.js"></script>
+<script>
+startSymbolApplication( 
+
+	//設定(config.jsより)
+	CONFIG_SYMBOL_APPLICATION,
+
+	////受信トリガー
+
+	//初期設定完了時
+	async function(node){
+		console.log("Connect to Symbol Blockchain");
+		console.log(node);
+	},
+
+	//ソケット受信時
+	async function(event){	
+
+		console.log("onSocketMessage");
+		console.log(event);
+	},
+
+	//QR受信時
+	async function(event){
+		console.log("onPhysicalMessage");
+		console.log(event);
+	},
+
+	////異常時トリガー
+
+	//ソケット再起動時
+	function(nodeSocket){
+		console.log("onSocketResumed");
+		console.log(nodeSocket);
+	},	
+
+	//ノード再選択時
+	function(event){
+		console.log("onStatusChange");
+		console.log(event);
+	}
+);
+</script>
+</body>
+</html>
+
