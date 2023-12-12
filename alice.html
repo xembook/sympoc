@@ -23,16 +23,8 @@ startSymbolApplication(
 		alice = sym.Account.generateNewAccount(152);
 		console.log(alice);
 		const data = Buffer.from('hello,symbol!', 'utf-8').toString('hex').toUpperCase()
-		
-        fetch(`alice://sign?type=request_sign_utf8&data=${data}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log('Server response:', data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-        		
+		window.location.href = `alice://sign?type=request_sign_utf8&data=${data}`;
+	
 	},
 
 	//ソケット受信時
